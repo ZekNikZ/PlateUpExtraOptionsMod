@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenExtraOptionsMod", "KitchenExtraOptionsMod.csproj", "{345605CA-549B-4F2C-9DB3-35F144F18A0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Workshop|Any CPU = Workshop|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{345605CA-549B-4F2C-9DB3-35F144F18A0A}.Workshop|Any CPU.ActiveCfg = Workshop|Any CPU
+		{345605CA-549B-4F2C-9DB3-35F144F18A0A}.Workshop|Any CPU.Build.0 = Workshop|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A1D9A6D-66B8-4D3F-AB08-EA2F29BA9438}
+	EndGlobalSection
+EndGlobal
