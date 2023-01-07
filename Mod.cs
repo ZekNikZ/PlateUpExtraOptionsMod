@@ -1,11 +1,13 @@
 ﻿using Kitchen;
 using KitchenLib;
 using KitchenLib.Event;
+using KitchenLib.Registry;
 using KitchenMods;
 using System.Reflection;
 using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
+using System.Linq;
 
 // Namespace should have "Kitchen" in the beginning
 namespace KitchenExtraOptionsMod
@@ -17,7 +19,7 @@ namespace KitchenExtraOptionsMod
         // mod version must follow semver e.g. "1.2.3"
         public const string MOD_GUID = "ZekNikZ.PlateUp.ExtraOptionsMod";
         public const string MOD_NAME = "ExtraOptionsMod";
-        public const string MOD_VERSION = "0.1.0";
+        public const string MOD_VERSION = "0.2.0";
         public const string MOD_AUTHOR = "ZekNikZ";
         public const string MOD_GAMEVERSION = ">=1.1.1";
         // Game version this mod is designed for in semver
@@ -25,6 +27,8 @@ namespace KitchenExtraOptionsMod
         // e.g. ">=1.1.1 <=1.2.3" for all from/until
 
         public Mod() : base(MOD_GUID, MOD_NAME, MOD_AUTHOR, MOD_VERSION, MOD_GAMEVERSION, Assembly.GetExecutingAssembly()) { }
+
+        public static bool IsSeedExplorerInstalled => ModRegistery.Registered.Any(kv => kv.Value.ModID == "beaudenon.PlateUp.SeedExplorer");
 
         protected override void Initialise()
         {

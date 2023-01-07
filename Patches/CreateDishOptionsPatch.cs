@@ -31,9 +31,7 @@ namespace KitchenExtraOptionsMod.Patches
     {
 		static void Postfix(CreateDishOptions __instance)
 		{
-			Mod.LogInfo("yo yo yo");
 			MethodInfo mInfo = typeof(CreateDishOptions).GetMethod("CreateFoodSource", BindingFlags.NonPublic | BindingFlags.Instance);
-			Mod.LogInfo(mInfo);
 
 			using var existingDishes = CreateDishOptionsInitializePatch.ExistingDishChoices.ToComponentDataArray<CDishChoice>(Allocator.Temp);
 			using var allDishOptions = CreateDishOptionsInitializePatch.AllDishChoices.ToComponentDataArray<CDishUpgrade>(Allocator.Temp);
@@ -42,12 +40,23 @@ namespace KitchenExtraOptionsMod.Patches
 				allDishOptions.Select(d => d.DishID)
 				.Except(existingDishes.Select(c => c.Dish)).ToList()
 			);
-			
-			List<Vector3> positions = new()
-			{
-				new Vector3(1f, 0f, -7f),
-				new Vector3(4f, 0f, -5f)
-			};
+
+			List<Vector3> positions;
+			if (Mod.IsSeedExplorerInstalled) {
+				positions = new()
+				{
+					new Vector3(4f, 0f, -4f),
+					new Vector3(4f, 0f, -5f)
+				};
+			} 
+			else
+            {
+				positions = new()
+				{
+					new Vector3(1f, 0f, -7f),
+					new Vector3(4f, 0f, -5f)
+				};
+			}
 			for (int i = 0; i < positions.Count; i++)
 			{
 				mInfo.Invoke(__instance, new object[] { positions[i], GameData.Main.Get<Dish>(dishes[i]), false });

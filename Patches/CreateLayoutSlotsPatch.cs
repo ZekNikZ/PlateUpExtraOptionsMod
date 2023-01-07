@@ -11,6 +11,11 @@ namespace KitchenExtraOptionsMod.Patches
     {
 		static void Postfix(CreateLayoutSlots __instance)
 		{
+			if (Mod.IsSeedExplorerInstalled)
+            {
+				return;
+            }
+
 			MethodInfo mInfo = typeof(CreateLayoutSlots).GetMethod("CreateMapSource", BindingFlags.NonPublic | BindingFlags.Instance);
 
 			List<Vector3> positions = new()
